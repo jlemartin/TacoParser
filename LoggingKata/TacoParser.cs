@@ -49,7 +49,7 @@ namespace LoggingKata
 
             var tacoBell = new TacoBell();
             tacoBell.Name = name;
-            tacoBell.Location = point;
+            tacoBell.Location = point;        
 
             // Then, return the instance of your TacoBell class
             // Since it conforms to ITrackable
