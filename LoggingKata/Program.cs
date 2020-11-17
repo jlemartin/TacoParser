@@ -21,7 +21,10 @@ namespace LoggingKata
             // Log and error if you get 0 lines and a warning if you get 1 line
             var lines = File.ReadAllLines(csvPath);
 
-            logger.LogInfo($"Lines: {lines[0]}");
+            for (int i = 0; i < lines.Length; i++)
+            {
+
+            logger.LogInfo($"Lines: {lines[i]}");
 
             // Create a new instance of your TacoParser class
             var parser = new TacoParser();
@@ -30,6 +33,8 @@ namespace LoggingKata
             var locations = lines.Select(parser.Parse).ToArray();
 
             // DON'T FORGET TO LOG YOUR STEPS
+
+            }
 
             // Now that your Parse method is completed, START BELOW ----------
 
