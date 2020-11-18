@@ -21,7 +21,14 @@ namespace LoggingKata
             // Log and error if you get 0 lines and a warning if you get 1 line
             var lines = File.ReadAllLines(csvPath);
 
-            logger.LogInfo($"Lines: {lines[0]}");
+            if (lines.Length == 0)
+            {
+            logger.LogInfo("No lines read in!");
+            }
+            if (lines.Length == 1)
+            {
+                logger.LogWarning($"Only 1 line: {lines[0]}");
+            }
 
             // Create a new instance of your TacoParser class
             var parser = new TacoParser();
@@ -80,6 +87,7 @@ namespace LoggingKata
 
             // Once you've looped through everything, you've found the two Taco Bells farthest away from each other.
 
+            Console.WriteLine();
             Console.WriteLine("The farthest apart are:");
             Console.WriteLine($"{taco1.Name} and {taco2.Name}");
             Console.WriteLine($"They are {distance} meters apart.");
