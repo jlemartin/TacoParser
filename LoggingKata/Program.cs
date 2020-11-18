@@ -62,7 +62,7 @@ namespace LoggingKata
             {
             // Create a new corA Coordinate with your locA's lat and long
                 GeoCoordinate corA = new GeoCoordinate(locations[i].Location.Latitude, locations[i].Location.Longitude);
-
+                     
             // Now, do another loop on the locations with the scope of your first loop, so you can grab the "destination" location (perhaps: `locB`)
                 for (int j = 0; j < locations.Length; j++)
                 {
@@ -79,9 +79,7 @@ namespace LoggingKata
                         taco1 = locations[i];
                         taco2 = locations[j];
                     }
-
                 }
-
             }
 
             // Once you've looped through everything, you've found the two Taco Bells farthest away from each other.
@@ -90,7 +88,7 @@ namespace LoggingKata
             Console.WriteLine("The farthest apart are:");
             Console.WriteLine($"{taco1.Name} and {taco2.Name}");
             Console.WriteLine($"They are {distance} meters apart.");
-            var miles = distance * 0.000621371192;
+            var miles = Math.Round(distance * 0.000621371192);
             Console.WriteLine($"That would be {miles} miles.");
         }
     }

@@ -26,6 +26,8 @@ namespace LoggingKata
             }
 
             // grab the latitude from your array at index 0
+            // You are going to need to parse your string as a `double`
+
             double latitude = 0;
             if (Double.TryParse(cells[0], out latitude) == false)
             {
@@ -49,19 +51,19 @@ namespace LoggingKata
                 logger.LogError("No location");
             }
 
-            // Your going to need to parse your string as a `double`
-            // which is similar to parsing a string as an `int`
 
             // You'll need to create a TacoBell class
             // that conforms to ITrackable
+            // Then, you'll need an instance of the TacoBell class
+            // With the name and point set correctly
 
+            // TacoBell class has a Location property which is a struct Point
+            // Thus, a point object is needed
             var point = new Point();
             point.Latitude = latitude;
             point.Longitude = longitude;
 
-            // Then, you'll need an instance of the TacoBell class
-            // With the name and point set correctly
-
+            // Instantiating TacoBell class and supplying property values
             var tacoBell = new TacoBell();
             tacoBell.Name = name;
             tacoBell.Location = point;        
