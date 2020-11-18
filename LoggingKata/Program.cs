@@ -51,8 +51,7 @@ namespace LoggingKata
 
             // Create a `double` variable to store the distance
             double distance = 0.0;
-            double temp = 0.0;
-
+            double tempDistance = 0.0;
 
             // Include the Geolocation toolbox, so you can compare locations: `using GeoCoordinatePortable;`
 
@@ -71,12 +70,12 @@ namespace LoggingKata
                     GeoCoordinate corB = new GeoCoordinate(locations[j].Location.Latitude, locations[j].Location.Longitude);
 
             // Now, compare the two using `.GetDistanceTo()`, which returns a double
-                    temp = corA.GetDistanceTo(corB);
+                    tempDistance = corA.GetDistanceTo(corB);
 
             // If the distance is greater than the currently saved distance, update the distance and the two `ITrackable` variables you set above
-                    if (temp > distance)
+                    if (tempDistance > distance)
                     {
-                        distance = temp;
+                        distance = tempDistance;
                         taco1 = locations[i];
                         taco2 = locations[j];
                     }

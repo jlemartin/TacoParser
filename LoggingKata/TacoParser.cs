@@ -11,7 +11,7 @@ namespace LoggingKata
         
         public ITrackable Parse(string line)
         {
-            logger.LogInfo("Begin parsing");
+            logger.LogInfo("Begin parsing a line");
 
             // Take your line and use line.Split(',') to split it up into an array of strings, separated by the char ','
             var cells = line.Split(',');
@@ -26,13 +26,28 @@ namespace LoggingKata
             }
 
             // grab the latitude from your array at index 0
-            var latitude = Double.Parse(cells[0]);
+            double latitude = 0;
+            if (Double.TryParse(cells[0], out latitude) == false)
+            {
+                logger.LogError($"{cells[0]} Bad data: Couldn't parse latitude");
+            }
+            //var latitude = Double.Parse(cells[0]);
 
             // grab the longitude from your array at index 1
-            var longitude = Double.Parse(cells[1]);
+            double longitude = 0;
+            if (Double.TryParse(cells[1], out longitude) == false)
+            {
+                logger.LogError($"{cells[1]} Bad data: Couldn't parse longitude");
+            }
+            // var longitude = Double.Parse(cells[1]);
 
             // grab the name from your array at index 2
             var name = cells[2];
+
+            if (name == null || name.Length == 0)
+            {
+                logger.LogError("No location");
+            }
 
             // Your going to need to parse your string as a `double`
             // which is similar to parsing a string as an `int`
